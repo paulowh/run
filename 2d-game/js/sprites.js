@@ -2,8 +2,8 @@ const gravity = 0.2
 
 const floorHeight = 96
 
-let backgroundSpritePath = "2d-game/img/background/placeholder.png"
-let defaultObjectSpritePath = "2d-game/img/objects/square.svg"
+const backgroundSpritePath = "./img/background/placeholder.png"
+const defaultObjectSpritePath = "./img/objects/square.svg"
 
 class Sprite {
     constructor({ position, velocity, source, scale, offset, sprites }) {
@@ -62,12 +62,13 @@ class Sprite {
         let newSprite = this.image.src
 
         if (previousSprite !== newSprite) {
-
+     
             console.log("Detected sprite change: ", previousSprite.split("/").pop(), " -> ", newSprite.split("/").pop())
             
             let previousSpriteImage = new Image()
             previousSpriteImage.src = previousSprite
 
+      
             this.position.y += (previousSpriteImage.height - this.image.height) * this.scale
         }
     }
@@ -75,13 +76,12 @@ class Sprite {
     draw() {        
         ctx.imageSmoothingEnabled = false;
 
-        
+   
         const xScale = this.facing === "left" ? -1 : 1;
 
         ctx.save();
         ctx.translate(this.position.x + this.offset.x, this.position.y + this.offset.y);
-        ctx.scale(xScale, 1);
-
+        ctx.scale(xScale, 1); 
         ctx.drawImage(
             this.image,
             this.currentSpriteFrame * this.image.width / this.totalSpriteFrames,
@@ -217,22 +217,22 @@ const player = new Fighter({
     scale: 4,
     sprites: {
         idle: {
-            src: "2d-game/img/player/idle.png",
+            src: "./img/player/idle.png",
             totalSpriteFrames: 11,
             framesPerSpriteFrame: 18
         },
         running: {
-            src: "2d-game/img/player/running.png",
+            src: "./img/player/running.png",
             totalSpriteFrames: 10,
             framesPerSpriteFrame: 8
         },
         jumping: {
-            src: "2d-game/img/player/jumping.png",
+            src: "./img/player/jumping.png",
             totalSpriteFrames: 4,
             framesPerSpriteFrame: 8
         },
         attacking: {
-            src: "2d-game/img/player/attacking.png",
+            src: "./img/player/attacking.png",
             totalSpriteFrames: 7,
             framesPerSpriteFrame: 8
         }
