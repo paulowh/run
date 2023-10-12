@@ -14,7 +14,7 @@ document.getElementById('meuFormulario').addEventListener('submit', function (ev
     var mensagemCodificado = encodeURIComponent(mensagem);
 
     // Redireciona para a próxima página com os parâmetros na URL
-    window.location.href = '../envio.html' +
+    window.location.href = 'terra-fertilis/envio.html' +
         '?nome=' + nomeCodificado +
         '&email=' + emailCodificado +
         '&assunto=' + assuntoCodificado +
