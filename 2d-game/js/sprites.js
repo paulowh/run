@@ -2,8 +2,8 @@ const gravity = 0.2
 
 const floorHeight = 96
 
-const backgroundSpritePath = "2d-game/img/background/placeholder.png"
-const defaultObjectSpritePath = "2d-game/img/objects/square.svg"
+let backgroundSpritePath = "2d-game/img/background/placeholder.png"
+let defaultObjectSpritePath = "2d-game/img/objects/square.svg"
 
 class Sprite {
     constructor({ position, velocity, source, scale, offset, sprites }) {
