@@ -1,22 +1,29 @@
-document.getElementById('meuFormulario').addEventListener('submit', function (event) {
-    event.preventDefault(); // Impede o envio padrão do formulário
+const meuFormulario = document.getElementById('meuFormulario')
 
-    // Captura os valores dos campos
+meuFormulario.addEventListener('submit', function (event) {
+    event.preventDefault();
+
     var nome = document.getElementById('nome').value;
+    console.log(nome);
+
     var email = document.getElementById('email').value;
     var assunto = document.getElementById('assunto').value;
     var mensagem = document.getElementById('mensagem').value;
 
-    // Codifica os valores para passar na URL
+
     var nomeCodificado = encodeURIComponent(nome);
+
+
+    
     var emailCodificado = encodeURIComponent(email);
     var assuntoCodificado = encodeURIComponent(assunto);
     var mensagemCodificado = encodeURIComponent(mensagem);
 
+
     // Redireciona para a próxima página com os parâmetros na URL
-    window.location.href = 'terra-fertilis/envio.html' +
-        '?nome=' + nomeCodificado +
-        '&email=' + emailCodificado +
-        '&assunto=' + assuntoCodificado +
-        '&mensagem=' + mensagemCodificado;
+    window.location.href = '../envio.html' +
+        '?nome=' + nome +
+        '&email=' + email +
+        '&assunto=' + assunto +
+        '&mensagem=' + mensagem;
 });
